@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "479dc027-2e7d-4b86-83ae-3164ba943f33",
+		"name": "insurance-mis",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47388545",
+		"_collection_link": "https://ow-ajayg51-4204633.postman.co/workspace/Ajay's-Workspace~e0c3c0d9-7b6a-4bf7-8226-a92f81ead568/collection/47388545-479dc027-2e7d-4b86-83ae-3164ba943f33?action=share&source=collection_link&creator=47388545"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// Admin\r\n{\r\n    \"email\":\"ow.ajayg51@gmail.com\",\r\n    \"password\":\"Proxy\"\r\n}\r\n\r\n// Agent\r\n// {\r\n//     \"email\":\"no.reply.vlog3311@gmail.com\",\r\n//     \"password\":\"Proxy\"\r\n// }\r\n\r\n\r\n// Customer\r\n// {\r\n//     \"email\":\"ajayg51.nitp@gmail.com\",\r\n//     \"password\":\"Proxy\"\r\n// }\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/auth/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"ow.ajayg51@gmail.com\",\r\n    \"name\" : \"Ajay Gond\",\r\n    \"age\" : \"22\",\r\n    \"contactNo\" : \"123456789\",\r\n    \"password\" : \"Proxy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/user/admin/add",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"user",
+						"admin",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvdy5hamF5ZzUxQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiaWF0IjoxNzU1MDgyNTU0LCJleHAiOjE3NTUwODYxNTR9.jNWfallgp6W534k4WOJEOv2FU7r1MmAaok2E-9FzGCs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/user/admin",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"user",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhamF5ZzUxQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiaWF0IjoxNzU1MDc4NTkwLCJleHAiOjE3NTUwODIxOTB9.IXib6CmZkLOvjaizsuqs4QrTCDjuy65yyIWfSFet_xw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productDtoList\": [\r\n        {\r\n            \"productCode\": \"E123\",\r\n            \"productType\": \"HEALTH\",\r\n            \"productExpiryDate\": \"2025-12-07\",\r\n            \"sumInsured\": \"10000\",\r\n            \"productPrice\" : \"1000\"\r\n            \r\n        },\r\n         {\r\n           \r\n            \"productCode\": \"E125\",\r\n            \"productType\": \"TRAVEL\",\r\n            \"productExpiryDate\": \"2025-12-07\",\r\n            \"sumInsured\": \"10000\",\r\n            \"productPrice\" : \"1000\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies/products/add",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"products",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvdy5hamF5ZzUxQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiaWF0IjoxNzU1MDgyNTU0LCJleHAiOjE3NTUwODYxNTR9.jNWfallgp6W534k4WOJEOv2FU7r1MmAaok2E-9FzGCs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// // Admin\r\n// {\r\n//     \"email\":\"ow.ajayg51@gmail.com\"\r\n// }\r\n\r\n// // Agent\r\n// // {\r\n// //     \"email\" : \"no.reply.vlog3311@gmail.com\"\r\n// // }\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies/products",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agent/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvdy5hamF5ZzUxQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiaWF0IjoxNzU1MDc4OTQ0LCJleHAiOjE3NTUwODI1NDR9.HxJcwiaxShXR5NRnyizQKJovOLS8x16rtY1wvjiXSGI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=3E23E73B5644211B802D885C504C27A2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"agentDto\" : {\r\n        \"email\" : \"no.reply.vlog3311@gmail.com\",\r\n        \"name\" : \"Agent ajay\",\r\n        \"age\" : \"22\",\r\n        \"contactNo\" : \"123456789\",  \r\n        \"password\" : \"Proxy\"\r\n    }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/user/agent/add",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"user",
+						"agent",
+						"add"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9000/user/admin/add' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Cookie: JSESSIONID=3E23E73B5644211B802D885C504C27A2' \\\r\n--data-raw '{\r\n    \"email\" : \"ow.ajayg51@gmail.com\",\r\n    \"name\" : \"Ajay Gond\",\r\n    \"age\" : \"22\",\r\n    \"contactNo\" : \"123456789\",\r\n    \"password\" : \"Proxy\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "agent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuby5yZXBseS52bG9nMzMxMUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BR0VOVCIsImlhdCI6MTc1NTA1NTE5MSwiZXhwIjoxNzU1MDU4NzkxfQ.9IuchJEVz7NGr-4JqkJ12Od7y6k_BALFNVhRoKTg1UI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=3E23E73B5644211B802D885C504C27A2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/user/agent",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"user",
+						"agent"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9000/user/admin' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Cookie: JSESSIONID=3E23E73B5644211B802D885C504C27A2' \\\r\n--data-raw '{\r\n    \"email\" : \"ow.ajayg51@gmail.com\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "product/sell",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuby5yZXBseS52bG9nMzMxMUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BR0VOVCIsImlhdCI6MTc1NTA3OTAwNiwiZXhwIjoxNzU1MDgyNjA2fQ.XYQSzs_GUijMz_uGeMYPmmXwLgQQqqoS7sxMu_dCZp4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"agentId\" : \"no.reply.vlog3311@gmail.com\",\r\n    \"customerId\" : \"ajayg51.nitp@gmail.com\",\r\n    \"product\" : {\r\n        \"productCode\" : \"E125\",\r\n        \"productType\" : \"TRAVEL\",\r\n        \"productExpiryDate\" : \"2025-12-31\",\r\n        \"sumInsured\" : \"100000\",\r\n        \"productPrice\" : \"1000\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies/product/sell",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"product",
+						"sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/sold",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvdy5hamF5ZzUxQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX0FETUlOIiwiaWF0IjoxNzU1MDgyNTU0LCJleHAiOjE3NTUwODYxNTR9.jNWfallgp6W534k4WOJEOv2FU7r1MmAaok2E-9FzGCs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies/products/sold",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"products",
+						"sold"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/claim/action",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuby5yZXBseS52bG9nMzMxMUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BR0VOVCIsImlhdCI6MTc1NTA3OTEzNCwiZXhwIjoxNzU1MDgyNzM0fQ.-1fdzWbSFzS-Z9i7APBojNhQjCDAlXdX4hcZuf727f8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\": \"ajayg51.nitp@gmail.com\",\r\n    \"policyDtoList\":[{\r\n        \"policyCode\" : \"8104463166421092593\",\r\n        \"policyClaimDate\" : \"2025-08-13\",\r\n        \"claimAmt\" : \"123\"\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies/claims/action",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"claims",
+						"action"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuby5yZXBseS52bG9nMzMxMUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BR0VOVCIsImlhdCI6MTc1NTA3OTAwNiwiZXhwIjoxNzU1MDgyNjA2fQ.XYQSzs_GUijMz_uGeMYPmmXwLgQQqqoS7sxMu_dCZp4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=3E23E73B5644211B802D885C504C27A2; JSESSIONID=3E23E73B5644211B802D885C504C27A2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerDto\" : {\r\n        \"email\" : \"ajayg51.nitp@gmail.com\",\r\n        \"name\" : \"Customer ajay\",\r\n        \"age\" : \"22\",\r\n        \"contactNo\" : \"123456789\",  \r\n        \"password\" : \"Proxy\"\r\n    }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/user/customer/add",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"user",
+						"customer",
+						"add"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9000/user/agent/add' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Cookie: JSESSIONID=3E23E73B5644211B802D885C504C27A2; JSESSIONID=3E23E73B5644211B802D885C504C27A2' \\\r\n--data-raw '{\r\n    \"adminEmail\" : \"ow.ajayg51@gmail.com\",\r\n    \"agentDto\" : {\r\n        \"email\" : \"no.reply.vlog3311@gmail.com\",\r\n        \"name\" : \"Agent ajay\",\r\n        \"age\" : \"22\",\r\n        \"contactNo\" : \"123456789\",  \r\n        \"password\" : \"Proxy\"\r\n    }\r\n    \r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "customer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhamF5ZzUxLm5pdHBAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQ1VTVE9NRVIiLCJpYXQiOjE3NTUwNTUyNjksImV4cCI6MTc1NTA1ODg2OX0.4msBM_q9KoU81hlTmezIYuSgKu0wfMHXlUQX_IfZCYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=3E23E73B5644211B802D885C504C27A2; JSESSIONID=0F850944232F717D4861A9D4A210378C"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/user/customer",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"user",
+						"customer"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:9000/user/agent' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Cookie: JSESSIONID=3E23E73B5644211B802D885C504C27A2; JSESSIONID=0F850944232F717D4861A9D4A210378C' \\\r\n--data-raw '{\r\n    \"email\" : \"no.reply.vlog3311@gmail.com\"\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "policies/bought",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhamF5ZzUxLm5pdHBAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQ1VTVE9NRVIiLCJpYXQiOjE3NTUwNTQ3NTksImV4cCI6MTc1NTA1ODM1OX0.zoCX0YTIPlGpJ5_mQBN8Moo716bJsuZQHTNtYq34P2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies/bought",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"bought"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/policies/claim",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhamF5ZzUxLm5pdHBAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQ1VTVE9NRVIiLCJpYXQiOjE3NTUwNzkwNjUsImV4cCI6MTc1NTA4MjY2NX0.TAZbxuljCeuLM7hOOd-5vPF2HskfTGKbYZX1RkvLuHY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"agentId\":\"no.reply.vlog3311@gmail.com\",\r\n    \"policyCode\" : \"8104463166421092593\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies/claim",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"claim"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:9000",
+			"type": "default"
+		}
+	]
+}
